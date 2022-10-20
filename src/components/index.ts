@@ -1,8 +1,8 @@
-import { Footer } from './components/footer.js';
-import { Header } from './components/header.js';
-import { Main } from './components/main.js';
-import { TaskList } from './components/task.list.js';
-import { TASKS } from './models/data.js';
+import { Footer } from '../../../../challenger/202210-W3CH4-Marcos-b/src/components/footer.js.js';
+import { Header } from '../../../../challenger/202210-W3CH4-Marcos-b/src/components/header.js.js';
+import { Main } from '../../../../challenger/202210-W3CH4-Marcos-b/src/components/main.js.js';
+import { TaskList } from '../../../../challenger/202210-W3CH4-Marcos-b/src/components/task.list.js.js';
+import { TASKS } from '../../../../challenger/202210-W3CH4-Marcos-b/src/components/models/data.js.js';
 
 console.log('Loaded index');
 console.log(TASKS);
