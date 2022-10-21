@@ -1,5 +1,6 @@
 import { Component } from './component.js';
 import { series } from '../models/series.js';
+import { Store } from './services/storage';
 
 export interface moviesfilmI {
   poster: string;
@@ -18,7 +19,18 @@ export class Whatched extends Component {
 
     this.moviesFilm = series;
 
-    this.manageComponent();
+    this.manageComponent(){
+       this.template = this.createTemplate();
+    this.renderAdd(this.selector, this.template);
+    setTimeout(() => {
+      document
+        .querySelectorAll('.icon--delete')
+        .forEach((item) =>
+          item.addEventListener('click', this.handlerEraser.bind(this))
+        );
+    }, 100);
+    };
+
   }
 
   createTemplate() {
@@ -30,7 +42,7 @@ export class Whatched extends Component {
             <!--<p class="info">Congrats! You've watched all your series</p>-->
             <ul class="series-list"> `;
     this.moviesFilm.forEach((item: moviesfilmI) => {
-      if (item.watched) {
+      if (!item.watched) {
         template += `<li class="serie">
                 <img
                   class="serie__poster"
@@ -67,8 +79,7 @@ export class Whatched extends Component {
     return template;
   }
 
- manageComponent() {
-  
+   manageComponent() {
     this.template = this.createTemplate();
     this.renderAdd(this.selector, this.template);
     setTimeout(() => {
@@ -80,11 +91,11 @@ export class Whatched extends Component {
     }, 100);
   }
 }
+
 handlerEraser(ev: Event) {
     const deletedID = (ev.target as HTMLElement).id;
     this.series = this.series.filter(
       (item) => item.id !== +(deletedID as string)
     );
-    this.storeService.setStorage(this.series);
-    this.manageComponent();
-  }
+    this.storeService.setStore(this.series);
+    this.manageComponent();}

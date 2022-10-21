@@ -9,7 +9,7 @@ Tienes que mostrar un listado de series, separándolas entre vistas y no vistas.
 
 Si el usuario hace click en el icono de la x, la serie se debe eliminar.
 
-se nos da una maqueta que se trabajara con componentes que en este casoson series.
+se nos da una maqueta que se trabajara con componentes que en este caso son series.
 debemos hacer un crud de series de television.
 trabajando con local storage.
 hacer dos componentes vistas y no vistas→ una array con filtro wotched true vistas watches false no vistas
